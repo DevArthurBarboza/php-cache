@@ -13,16 +13,23 @@ class CacheItem implements CacheItemInterface {
     private $key;
     private $expiration;
 
+    public function __construct($key) 
+    {
+        $this->key = $key
+    }
 
-    public function get() : mixed{
+    public function get() : mixed
+    {
         return $this->value;
     }
 
-    public function getKey(): string {
+    public function getKey(): string 
+    {
         return $this->key;
     }
 
-    public function isHit(): bool{
+    public function isHit(): bool
+    {
         return $this->isHit;
     }
 
@@ -34,7 +41,7 @@ class CacheItem implements CacheItemInterface {
     }
 
     public function expiresAfter(
-        int|DateInterval|null $time
+            int|DateInterval|null $time
         ): self {
 
         if ($time === null) {
@@ -51,7 +58,8 @@ class CacheItem implements CacheItemInterface {
         return $this;
     }
 
-    public function set($value): self {
+    public function set($value): self 
+    {
         $this->value = $value;
         return $this;
     }
@@ -61,7 +69,8 @@ class CacheItem implements CacheItemInterface {
         return $this->expiration;
     }
 
-    public function create(){
+    public function create()
+    {
         return new $this;
     }
 }
